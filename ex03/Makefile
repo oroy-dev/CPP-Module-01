@@ -6,11 +6,11 @@
 #    By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/13 15:50:37 by oroy              #+#    #+#              #
-#    Updated: 2024/01/19 16:53:09 by oroy             ###   ########.fr        #
+#    Updated: 2024/01/22 20:14:43 by oroy             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:= brain
+NAME	:= fight
 
 OBJDIR	:= obj
 SRC		:= main.cpp HumanA.cpp HumanB.cpp Weapon.cpp

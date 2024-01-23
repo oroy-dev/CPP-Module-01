@@ -6,24 +6,35 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 16:55:48 by oroy              #+#    #+#             */
-/*   Updated: 2024/01/19 17:00:15 by oroy             ###   ########.fr       */
+/*   Updated: 2024/01/22 20:00:25 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HUMANA_H
 # define HUMANA_H
 
+# include <iostream>
+# include <string>
+# include "Weapon.hpp"
+
+# ifndef	HUMANA_TEXT
+#  define 	HUMANA_TEXT "\033[1;32m[HumanA]\033[0m	"
+# endif /*  HUMANA_TEXT */
+
 class HumanA
 {
 private:
-	/* data */
+	
+	std::string	name;
+	Weapon		&weapon;
+
 public:
 
-	HumanA(void);
+	HumanA(std::string name, Weapon &weapon);
 	~HumanA(void);
 
-	void	attack(void);
-	
+	void		attack(void);
+
 };
 
 #endif
