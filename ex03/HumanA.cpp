@@ -6,7 +6,7 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 16:58:18 by oroy              #+#    #+#             */
-/*   Updated: 2024/01/22 20:14:31 by oroy             ###   ########.fr       */
+/*   Updated: 2024/01/23 12:24:30 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ HumanA::~HumanA(void)
 	return ;
 }
 
-void	HumanA::attack(void)
+void	HumanA::attack(void) const
 {
 	std::cout << HUMANA_TEXT << this->name << " attacks with their " << this->weapon.getType() << std::endl;
 }

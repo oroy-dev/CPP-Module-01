@@ -6,7 +6,7 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 16:57:49 by oroy              #+#    #+#             */
-/*   Updated: 2024/01/22 20:13:19 by oroy             ###   ########.fr       */
+/*   Updated: 2024/01/23 12:24:10 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ HumanB::HumanB(void)
 {
 	std::cout << HUMANB_TEXT << "Nameless Human B created, so we'll call him Joe." << std::endl;
 	this->name = "Joe";
+	this->weapon = nullptr;
 	return ;
 }
 
 HumanB::HumanB(std::string name) : name(name)
 {
-	std::cout << HUMANB_TEXT << this->name << " created | Equipment: Nothing" << std::endl;
+	std::cout << HUMANB_TEXT << this->name << " created | Equipment: No weapon" << std::endl;
+	this->weapon = nullptr;
 	return ;
 }
 
@@ -31,9 +33,12 @@ HumanB::~HumanB(void)
 	return ;
 }
 
-void	HumanB::attack(void)
+void	HumanB::attack(void) const
 {
-	std::cout << HUMANB_TEXT << this->name << " attacks with their " << this->weapon->getType() << std::endl;
+	if (this->weapon == nullptr)
+		std::cout << HUMANB_TEXT << this->name << " attacks with their fists" << std::endl;
+	else
+		std::cout << HUMANB_TEXT << this->name << " attacks with their " << this->weapon->getType() << std::endl;
 }
 
 void	HumanB::setWeapon(Weapon &weapon)

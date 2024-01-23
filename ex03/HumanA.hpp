@@ -6,7 +6,7 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 16:55:48 by oroy              #+#    #+#             */
-/*   Updated: 2024/01/22 20:00:25 by oroy             ###   ########.fr       */
+/*   Updated: 2024/01/23 12:20:19 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ public:
 	HumanA(std::string name, Weapon &weapon);
 	~HumanA(void);
 
-	void		attack(void);
+	void		attack(void) const;
 
 };
 
