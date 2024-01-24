@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+         #
+#    By: olivierroy <olivierroy@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/13 15:50:37 by oroy              #+#    #+#              #
-#    Updated: 2024/01/23 19:43:55 by oroy             ###   ########.fr        #
+#    Updated: 2024/01/24 16:37:45 by olivierroy       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:= txt_replacer
+NAME	:= replace
 
 OBJDIR	:= obj
 SRC		:= main.cpp
@@ -44,7 +44,7 @@ re: fclean all
 
 # VALGRIND ******************************************************************* #
 
-ARGS	:= tests/test3.txt allo hello 
+ARGS	:= tests/test0 allo hello 
 
 vleaks:
 	$(MAKE)

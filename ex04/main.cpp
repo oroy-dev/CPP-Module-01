@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: olivierroy <olivierroy@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 12:28:08 by oroy              #+#    #+#             */
-/*   Updated: 2024/01/23 20:18:43 by oroy             ###   ########.fr       */
+/*   Updated: 2024/01/24 17:11:12 by olivierroy       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,46 +14,49 @@
 #include <fstream>
 #include <string>
 
-void	create_output(std::string &s1, std::string &s2, std::ifstream &ifs, std::ofstream &ofs)
+void	create_output(std::string s1, std::string s2, std::ifstream &ifs, std::ofstream &ofs)
 {
+	std::string::size_type	len;
 	std::string::size_type	pos;
 	std::string				line;
 
+	len = s1.length();
 	while (ifs.good())
 	{
 		std::getline(ifs, line);
-		while (!s2.empty() && (pos = line.find(s1)) != std::string::npos)
+		while ((pos = line.find(s1)) != std::string::npos)
 		{
-			line.erase(pos, s1.length());
+			line.erase(pos, len);
 			line.insert(pos, s2);
 		}
-		if (ifs.eof())
-			ofs << line;
-		else
-			ofs << line << std::endl;
+		ofs << line;
+		if (!ifs.eof())
+			ofs << std::endl;
 	}
 }
 
 int	main(int argc, char **argv)
 {
-	std::string		s1, s2;
 	std::ifstream	ifs;
 	std::ofstream	ofs;
+	std::string		ifs_name, ofs_name;
 
-	if (argc == 1)
+	if (argc != 4)
 	{
-		std::cout << "[ERROR]	Please provide at least an input file:" << std::endl;
-		std::cout << "	<filename>, <string to find>, <string used as replacement>" << std::endl;
+		std::cerr << "\033[1;33m[ERROR]\033[0m	Please provide the required arguments (3):" << std::endl;
+		std::cerr << "	<filename>, <string to find>, <string used as replacement>" << std::endl;
 		return (1);
 	}
-	else if (argc >= 4)
-	{
-		s1 = argv[2];
-		s2 = argv[3];
-	}
 	ifs.open(argv[1]);
-	ofs.open("out");
-	create_output(s1, s2, ifs, ofs);
+	if (!ifs.is_open())
+	{
+		std::cerr << "\033[1;33m[ERROR]\033[0m	Could not open file. Please check permissions." << std::endl;
+		return (1);
+	}
+	ifs_name = argv[1];
+	ofs_name = ifs_name + ".replace";
+	ofs.open(ofs_name);
+	create_output(argv[2], argv[3], ifs, ofs);
 	ifs.close();
 	ofs.close();
 	return (0);
