@@ -6,18 +6,18 @@
 #    By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/13 15:50:37 by oroy              #+#    #+#              #
-#    Updated: 2024/01/23 12:27:40 by oroy             ###   ########.fr        #
+#    Updated: 2024/01/23 19:43:55 by oroy             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:= replace
+NAME	:= txt_replacer
 
 OBJDIR	:= obj
 SRC		:= main.cpp
 OBJ		:= $(patsubst %.cpp, $(OBJDIR)/%.o, $(SRC))
 
 CC		:= c++
-FLAGS	:= -Wall -Wextra -Werror -std=c++98
+FLAGS	:= -Wall -Wextra -Werror -g -std=c++98
 
 RM		:= rm -rf
 
@@ -44,6 +44,8 @@ re: fclean all
 
 # VALGRIND ******************************************************************* #
 
+ARGS	:= tests/test3.txt allo hello 
+
 vleaks:
 	$(MAKE)
 	valgrind \
@@ -52,4 +54,4 @@ vleaks:
 	--show-reachable=yes \
 	--show-possibly-lost=yes \
 	--track-origins=yes \
-	./$(NAME)
+	./$(NAME) $(ARGS)
