@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olivierroy <olivierroy@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 17:21:48 by olivierroy        #+#    #+#             */
-/*   Updated: 2024/01/24 23:47:08 by olivierroy       ###   ########.fr       */
+/*   Created: 2024/01/24 17:22:02 by olivierroy        #+#    #+#             */
+/*   Updated: 2024/01/25 00:07:38 by olivierroy       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HARL_H
+# define HARL_H
 
-int main(void)
+# include <iostream>
+# include <string>
+
+class Harl
 {
-    Harl    harl;
+private:
 
-    harl.complain("DEBUG");
-    harl.complain("INFO");
-    harl.complain("WARNING");
-    harl.complain("ERROR");
-    harl.complain("WHATEVER");
-    return (0);
-}
+    void	debug(void);
+    void	info(void);
+    void	warning(void);
+    void	error(void);
+    void	whatever(void);
+
+    void    (Harl::*_f[5])(void);
+    std::string _levels[4];
+
+public:
+
+    Harl(void);
+    ~Harl(void);
+
+    void	complain(std::string level);
+
+};
+
+#endif

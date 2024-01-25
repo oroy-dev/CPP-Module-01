@@ -6,7 +6,7 @@
 /*   By: olivierroy <olivierroy@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:23:15 by olivierroy        #+#    #+#             */
-/*   Updated: 2024/01/24 23:47:00 by olivierroy       ###   ########.fr       */
+/*   Updated: 2024/01/25 00:20:46 by olivierroy       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Harl::Harl(void)
     _f[1] = &Harl::info;
     _f[2] = &Harl::warning;
     _f[3] = &Harl::error;
+    _f[4] = &Harl::whatever;
     _levels[0] = "DEBUG";
     _levels[1] = "INFO";
     _levels[2] = "WARNING";
@@ -60,22 +61,25 @@ void    Harl::error(void)
     std::cout << "This is unacceptable ! I want to speak to the manager now." << std::endl;
 }
 
+void	Harl::whatever(void)
+{
+    std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+}
+
 void    Harl::complain(std::string level)
 {
+	int	switch_on = 0;
 	int	i = 0;
 
 	while (i < 4)
 	{
-		if (_levels[i] == level)
-        {
-            (this->*_f[i])();
-            break ;
-        }
+		if (_levels[i] == level || switch_on)
+		{
+			switch_on = 1;
+			(this->*_f[i])();
+		}
 		i++;
 	}
-	if (i == 4)
-	{
-		std::cout << "[WHATEVER]	";
-		std::cout << "I love complaining for no reason !!!" << std::endl;
-	}
+	if (!switch_on)
+		(this->*_f[4])();
 }

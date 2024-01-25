@@ -6,20 +6,21 @@
 /*   By: olivierroy <olivierroy@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:21:48 by olivierroy        #+#    #+#             */
-/*   Updated: 2024/01/24 23:47:08 by olivierroy       ###   ########.fr       */
+/*   Updated: 2024/01/25 00:25:07 by olivierroy       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-int main(void)
+int main(int argc, char **argv)
 {
     Harl    harl;
-
-    harl.complain("DEBUG");
-    harl.complain("INFO");
-    harl.complain("WARNING");
-    harl.complain("ERROR");
-    harl.complain("WHATEVER");
+    
+    if (argc != 2)
+    {
+        std::cerr << "Please provide only one argument" << std::endl;
+		return (1);
+    }
+    harl.complain(argv[1]);
     return (0);
 }

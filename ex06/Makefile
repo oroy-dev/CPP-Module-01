@@ -6,14 +6,14 @@
 #    By: olivierroy <olivierroy@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/13 15:50:37 by oroy              #+#    #+#              #
-#    Updated: 2024/01/24 21:58:12 by olivierroy       ###   ########.fr        #
+#    Updated: 2024/01/24 23:47:30 by olivierroy       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:= harl
+NAME	:= HarlFilter
 
 OBJDIR	:= obj
-SRC		:= main.cpp harl.cpp
+SRC		:= main.cpp Harl.cpp
 OBJ		:= $(patsubst %.cpp, $(OBJDIR)/%.o, $(SRC))
 
 CC		:= c++
