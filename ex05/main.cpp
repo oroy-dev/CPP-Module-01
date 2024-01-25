@@ -6,7 +6,7 @@
 /*   By: olivierroy <olivierroy@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:21:48 by olivierroy        #+#    #+#             */
-/*   Updated: 2024/01/24 21:55:27 by olivierroy       ###   ########.fr       */
+/*   Updated: 2024/01/24 23:42:00 by olivierroy       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ int main(void)
     harl.complain("INFO");
     harl.complain("WARNING");
     harl.complain("ERROR");
+    harl.complain("WHATEVER");
     return (0);
 }

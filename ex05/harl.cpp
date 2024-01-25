@@ -6,7 +6,7 @@
 /*   By: olivierroy <olivierroy@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:23:15 by olivierroy        #+#    #+#             */
-/*   Updated: 2024/01/24 21:57:28 by olivierroy       ###   ########.fr       */
+/*   Updated: 2024/01/24 23:41:49 by olivierroy       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,20 @@ void    Harl::error(void)
 
 void    Harl::complain(std::string level)
 {
-    for (int i = 0; i < 4; i++)
-    {
-        if (_levels[i] == level)
+	int	i = 0;
+
+	while (i < 4)
+	{
+		if (_levels[i] == level)
         {
             (this->*_f[i])();
             break ;
         }
-    }
+		i++;
+	}
+	if (i == 4)
+	{
+		std::cout << "[WHATEVER]	";
+		std::cout << "I love complaining for no reason !!!" << std::endl;
+	}
 }
