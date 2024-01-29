@@ -6,15 +6,14 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 16:52:26 by oroy              #+#    #+#             */
-/*   Updated: 2024/01/23 12:24:04 by oroy             ###   ########.fr       */
+/*   Updated: 2024/01/29 13:47:14 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon(void)
+Weapon::Weapon(void) : type("Unknown weapon")
 {
-	setType("Unknown weapon");
 	std::cout << WEAPON_TEXT << getType() << " created" << std::endl;
 	return ;
 }

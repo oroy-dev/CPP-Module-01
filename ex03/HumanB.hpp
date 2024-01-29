@@ -6,7 +6,7 @@
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 16:57:16 by oroy              #+#    #+#             */
-/*   Updated: 2024/01/23 12:23:36 by oroy             ###   ########.fr       */
+/*   Updated: 2024/01/29 13:53:54 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ public:
 
 	HumanB(void);
 	HumanB(std::string name);
+	HumanB(std::string name, Weapon &weapon);
 	~HumanB();
 
 	void		attack(void) const;
