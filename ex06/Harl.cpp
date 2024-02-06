@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   harl.cpp                                           :+:      :+:    :+:   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olivierroy <olivierroy@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:23:15 by olivierroy        #+#    #+#             */
-/*   Updated: 2024/01/25 00:20:46 by olivierroy       ###   ########.fr       */
+/*   Updated: 2024/02/06 00:06:20 by olivierroy       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 Harl::Harl(void)
 {
-	std::cout << std::endl;
-    std::cout << "Harl created" << std::endl;
-	std::cout << std::endl;
     _f[0] = &Harl::debug;
     _f[1] = &Harl::info;
     _f[2] = &Harl::warning;
@@ -31,9 +28,6 @@ Harl::Harl(void)
 
 Harl::~Harl(void)
 {
-	std::cout << std::endl;
-    std::cout << "Harl destroyed" << std::endl;
-	std::cout << std::endl;
     return ;
 }
 
@@ -68,18 +62,20 @@ void	Harl::whatever(void)
 
 void    Harl::complain(std::string level)
 {
-	int	switch_on = 0;
 	int	i = 0;
 
 	while (i < 4)
 	{
-		if (_levels[i] == level || switch_on)
-		{
-			switch_on = 1;
-			(this->*_f[i])();
-		}
+		if (_levels[i] == level)
+            break;
 		i++;
 	}
-	if (!switch_on)
-		(this->*_f[4])();
+	switch (i)
+    {
+        case 0  : (this->*_f[0])();
+        case 1  : (this->*_f[1])();
+        case 2  : (this->*_f[2])();
+        case 3  : (this->*_f[3])(); break;
+        default : (this->*_f[4])(); break;
+    }
 }
